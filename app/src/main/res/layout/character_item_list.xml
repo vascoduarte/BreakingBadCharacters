@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<data>
+    <variable
+        name="characterItem"
+        type="com.outdoors.breakingbadchars.domain.Character" />
+    <variable
+        name="itemClickListener"
+        type="com.outdoors.breakingbadchars.util.CharacterClickListener" />
+</data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_height"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+
+        android:focusable="true"
+        android:onClick="@{()->itemClickListener.onClick(characterItem)}"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/app_padding">
+
+            <ImageView
+                android:id="@+id/charImg"
+                android:layout_width="@dimen/list_img_height"
+                android:layout_height="@dimen/list_img_height"
+                android:scaleType="centerCrop"
+                app:imgSrc="@{characterItem.image}" />
+
+            <TextView
+                android:id="@+id/charName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/app_padding"
+                android:text="@{characterItem.name}" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+
+    </LinearLayout>
+</layout>

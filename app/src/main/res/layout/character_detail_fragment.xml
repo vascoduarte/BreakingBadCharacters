@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="detailViewModel"
+            type="com.outdoors.breakingbadchars.detail.CharacterDetailViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".detail.CharacterDetail">
+
+
+        <ImageView
+            android:id="@+id/charImg"
+            android:layout_width="@dimen/detail_img_height"
+            android:layout_height="@dimen/detail_img_height"
+            android:padding="@dimen/app_padding"
+            app:imgSrc="@{detailViewModel.selectedCharacter.image}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/charName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/char_detail_name(detailViewModel.selectedCharacter.name, detailViewModel.selectedCharacter.nickname)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/charImg" />
+
+        <TextView
+            android:id="@+id/charBirthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/char_detail_born(detailViewModel.selectedCharacter.birthday)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/charName"
+            app:unknownBirthday="@{detailViewModel.selectedCharacter.birthday}"/>
+
+        <TextView
+            android:id="@+id/charPortrayed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/char_detail_portrayed(detailViewModel.selectedCharacter.portrayed)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/charBirthday" />
+
+        <TextView
+
+            android:id="@+id/charStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_padding"
+            android:text="@{detailViewModel.selectedCharacter.status}"
+            android:textSize="@dimen/char_status_font"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/charPortrayed"
+            app:characterStatus="@{detailViewModel.selectedCharacter.status}"
+           />
+
+        <TextView
+            android:id="@+id/charFeatureIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/char_present_in"
+            app:haveNoSeasons="@{detailViewModel.selectedCharacter.appearance}"
+            app:layout_constraintBottom_toTopOf="@id/seasons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/seasons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:haveNoSeasons="@{detailViewModel.selectedCharacter.appearance}"
+            app:layout_constraintBottom_toTopOf="@id/charFeatureInBCS"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/charFeatureInBCS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/char_present_in_bcs"
+            app:layout_constraintBottom_toTopOf="@+id/BCSseasons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:haveNoSeasons="@{detailViewModel.selectedCharacter.better_call_saul_appearance}"/>
+
+        <LinearLayout
+            android:id="@+id/BCSseasons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:haveNoSeasons="@{detailViewModel.selectedCharacter.better_call_saul_appearance}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

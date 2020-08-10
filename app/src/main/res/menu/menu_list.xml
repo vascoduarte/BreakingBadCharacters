@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/searchBt"
+
+        app:showAsAction="collapseActionView|ifRoom"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="@string/search"
+        app:actionViewClass="android.widget.SearchView"
+       />
+
+    <item android:id="@+id/filter"
+        android:icon="@drawable/ic_baseline_filter_list_24"
+        app:showAsAction="always"
+        android:title="@string/filter" >
+        <menu>
+            <group>
+                <item android:id="@+id/showAll" android:title="@string/filter_all_seasons"/>
+                <item android:id="@+id/season1" android:title="@string/filter_season1"/>
+                <item android:id="@+id/season2"  android:title="@string/filter_season2"/>
+                <item android:id="@+id/season3"  android:title="@string/filter_season3"/>
+                <item android:id="@+id/season4"  android:title="@string/filter_season4"/>
+                <item android:id="@+id/season5"  android:title="@string/filter_season5"/>
+            </group>
+        </menu>
+    </item>
+</menu>

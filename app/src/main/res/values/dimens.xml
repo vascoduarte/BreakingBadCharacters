@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_padding">8dp</dimen>
+    <dimen name="list_img_height">50dp</dimen>
+    <dimen name="list_item_height">70dp</dimen>
+    <dimen name="list_info_height">30dp</dimen>
+    <dimen name="detail_img_height">350dp</dimen>
+    <dimen name="season_height">20dp</dimen>
+    <dimen name="char_status_font">24sp</dimen>
+    <dimen name="no_results_height">100dp</dimen>
+</resources>

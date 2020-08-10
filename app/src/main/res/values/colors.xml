@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#C6DCCE</color>
+    <color name="colorPrimaryDark">#95aa9d</color>
+    <color name="colorAccent">#6C1A50</color>
+    <color name="deceased_text">#fc0703</color>
+    <color name="presumed_dead_text">#fc6203</color>
+    <color name="alive_text">#33691E</color>
+    <color name="season_bg">#C6DCCE</color>
+</resources>

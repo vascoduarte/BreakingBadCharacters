@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="@dimen/app_padding">
+    <TextView
+        android:gravity="center"
+        android:id="@+id/seasonTx"
+
+        android:layout_width="@dimen/season_height"
+        android:layout_height="@dimen/season_height"
+        tools:text="1"
+        android:background="@color/season_bg"/>
+
+</LinearLayout>

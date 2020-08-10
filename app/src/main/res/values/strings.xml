@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">BreakingBadChars</string>
+    <string name="main_toolbar_text">Characters</string>
+    <string name="char_detail_name">%s known as %s</string>
+    <string name="char_detail_born">born on %s</string>
+    <string name="char_detail_portrayed">Portrayed by %s</string>
+    <string name="char_present_in">Present in season(s):</string>
+    <string name="char_present_in_bcs">Better Call Saul season(s):</string>
+    <string name="search">Search</string>
+    <string name="filter">Seasons</string>
+    <string name="filter_season1">Season 1</string>
+    <string name="filter_season2">Season 2</string>
+    <string name="filter_season3">Season 3</string>
+    <string name="filter_season4">Season 4</string>
+    <string name="filter_season5">Season 5</string>
+    <string name="filter_all_seasons">All Seasons</string>
+    <string name="no_results">No results found for your filter</string>
+    <string name="retry">RETRY</string>
+    <string name="filter_information">Showing %s</string>
+
+</resources>

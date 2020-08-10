@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.outdoors.breakingbadchars.main.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".main.MainFragment">
+
+        <LinearLayout
+            android:id="@+id/seasonInformation"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_info_height"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@{@string/filter_information(mainViewModel.infoSeason)}"
+                android:textColor="@android:color/white"
+                tools:text="hello" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/noResultsView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/no_results_height"
+            android:layout_margin="@dimen/app_padding"
+            android:visibility="gone"
+            app:contentPadding="@dimen/app_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seasonInformation">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/errorText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/app_padding"
+                    android:text="@string/no_results"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.29000002"
+                    tools:text="Connection error..." />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:padding="@dimen/app_padding"
+                    android:text="@string/retry"
+                    android:textColor="@android:color/white"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/errorText"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/errorText"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chars_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:emptyView="@{noResultsView}"
+            app:filterText="@{mainViewModel.charFilter}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seasonInformation"
+            app:listData="@{mainViewModel.bbCharacters}"
+            tools:listitem="@layout/character_item_list" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
